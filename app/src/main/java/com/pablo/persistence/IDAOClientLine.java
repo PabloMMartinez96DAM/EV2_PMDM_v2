@@ -1,22 +1,23 @@
 package com.pablo.persistence;
 
+import com.pablo.models.ClientLineModel;
 import com.pablo.models.InvoiceLineModel;
-
 
 import java.util.ArrayList;
 
-public abstract class IDAOInvoiceLine {
-    public abstract ArrayList<InvoiceLineModel> getByCodigoFactura(int codigoFactura);
+public abstract class IDAOClientLine {
 
-    public abstract double getTotalAmount(int codigoFactura);
+    public abstract ArrayList<ClientLineModel> getByIdClient(int clientId);
+
+    public abstract int getTotalInvoices(int clientId);
 
 
 
-    public static IDAOInvoiceLine getInstance()
+    public static IDAOClientLine getInstance()
     {
         if (AppConfig.Modo == "MEMORY")
         {
-            return new DAOMemoryInvoiceLine();
+            return new DAOMemoryClientLine();
         }
         if (AppConfig.Modo == "FIREASE")
         {
@@ -28,4 +29,5 @@ public abstract class IDAOInvoiceLine {
         }
         return null;
     }
+
 }

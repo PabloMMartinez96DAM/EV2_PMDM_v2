@@ -9,6 +9,11 @@ public class ClientModel {
     //Name of the client
     private String name;
 
+    private String lastName;
+
+    private int age;
+    private String description;
+
     //Constructors
 
     //Default constructor
@@ -16,9 +21,12 @@ public class ClientModel {
 
 
     //Constructor which initialize all the properties of this class
-    public ClientModel(int id, String name) {
+    public ClientModel(int id, String name, String lastName, int age, String description) {
         this.id = id;
         this.name = name;
+        this.lastName = lastName;
+        this.age = age;
+        this.description = description;
     }
 
     //Getters & Setters
@@ -38,4 +46,27 @@ public class ClientModel {
         this.name = name;
     }
 
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

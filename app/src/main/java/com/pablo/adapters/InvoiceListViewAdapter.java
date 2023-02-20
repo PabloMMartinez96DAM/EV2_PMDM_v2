@@ -35,7 +35,7 @@ public class InvoiceListViewAdapter extends BaseAdapter implements Filterable {
 
     private IDAOClient idaoCliente = IDAOClient.getInstance();
 
-    private IDAOInvoiceLine idaoLineaFactura = IDAOInvoiceLine.GetInstance();
+    private IDAOInvoiceLine idaoLineaFactura = IDAOInvoiceLine.getInstance();
 
     private Context _context;
 
@@ -100,7 +100,7 @@ public class InvoiceListViewAdapter extends BaseAdapter implements Filterable {
         String diaFormateado = String.format("%02d", dia);
         String mesFormateado = new DateFormatSymbols().getShortMonths()[mes];
         ClientModel cliente = idaoCliente.getById(factura.getClientId());
-        double total = idaoLineaFactura.getTotal(factura.getId());
+        double total = idaoLineaFactura.getTotalAmount(factura.getId());
         lblCodigoFactura.setText(String.valueOf(factura.getId()));
         lblDateYear.setText(String.valueOf(ano));
         lblDateDay.setText(diaFormateado);

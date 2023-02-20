@@ -3,15 +3,15 @@ package com.pablo.models;
 import java.io.Serializable;
 
 public class UserModel implements Serializable {
-    private String usuario;
+    private String userName;
     private String password;
 
-    public String getUsuario() {
-        return usuario;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {
@@ -22,8 +22,8 @@ public class UserModel implements Serializable {
         this.password = password;
     }
 
-    public UserModel(String usuario, String password) {
-        this.usuario = usuario;
+    public UserModel(String userName, String password) {
+        this.userName = userName;
         this.password = password;
     }
 }

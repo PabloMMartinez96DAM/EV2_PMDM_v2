@@ -10,6 +10,6 @@ public class DAOMemoryLanguage extends IDAOLanguage {
 
     @Override
     public ArrayList<LanguageModel> getAll() {
-        return DataMemory.getInstance().datosIdiomas;
+        return DataMemory.getInstance().languageData;
     }
 }

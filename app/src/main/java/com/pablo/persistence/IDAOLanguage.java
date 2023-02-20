@@ -9,7 +9,7 @@ public abstract class IDAOLanguage {
 
     public abstract ArrayList<LanguageModel> getAll();
 
-    public static IDAOLanguage GetInstance()
+    public static IDAOLanguage getInstance()
     {
         if (AppConfig.Modo == "MEMORY")
         {

@@ -6,7 +6,7 @@ import com.pablo.models.UserModel;
 public abstract class IDAOUser {
     public abstract UserModel login(String usuario, String password);
 
-    public static IDAOUser GetInstance()
+    public static IDAOUser getInstance()
     {
         if (AppConfig.Modo == "MEMORY")
         {

@@ -2,65 +2,83 @@ package com.pablo.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.pablo.R;
+import com.pablo.adapters.InvoiceListViewAdapter;
+import com.pablo.models.InvoiceModel;
+import com.pablo.persistence.IDAOInvoice;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MasterInvoiceFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
+
 public class MasterInvoiceFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private FloatingActionButton _insertFloatingBtn;
+    private ListView _listView;
+    private ArrayList<InvoiceModel> _elements;
+    private InvoiceListViewAdapter _adapter;
+    private IDAOInvoice _idaoInvoice = IDAOInvoice.GetInstance();
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
-    public MasterInvoiceFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment MasterInvoiceFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static MasterInvoiceFragment newInstance(String param1, String param2) {
-        MasterInvoiceFragment fragment = new MasterInvoiceFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
+        // Obtén la referencia a la Toolbar inflada en onCreateView()
+        Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
+
+        // Configura la acción de búsqueda en la barra de herramientas
+        SearchView searchView = toolbar.findViewById(R.id.search_view);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // Implementa aquí lo que quieres hacer cuando el usuario presiona el botón de búsqueda
+                _adapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // Implementa aquí la lógica de filtrado de resultados en base a newText
+                _adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+
     }
 
+    //- LayoutInflater inflater: Este parámetro es un objeto LayoutInflater que se utiliza para inflar la vista del fragmento.
+    //- ViewGroup container: Este parámetro es un ViewGroup que es el contenedor de la vista inflada.
+    //- Bundle savedInstanceState: Este parámetro es un Bundle que contiene el estado guardado previamente de la actividad o fragmento.
+    //  Se usa para restaurar el estado previo en caso de un cambio de orientación de la pantalla o cualquier otra acción que cause la recreación del fragmento.
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_master_invoice, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_master_invoice, container, false);
+        _listView = view.findViewById(R.id.listView);
+        _elements = _idaoInvoice.getAll();
+        _adapter = new InvoiceListViewAdapter(getContext(), _elements);
+        _listView.setAdapter(_adapter);
+
+        _insertFloatingBtn = view.findViewById(R.id.fab_insertar);
+        _insertFloatingBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "Implementar nueva factura", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        return view;
     }
 }

@@ -60,9 +60,9 @@ public class InvoiceLineListViewAdapter extends BaseAdapter {
         }
         InvoiceLineModel lineaFactura = _items.get(position);
         //Luego, se obtiene una referencia a un TextView dentro del layout personalizado.
-        TextView lblCantidad = convertView.findViewById(R.id.lblCantidad);
-        TextView lblProducto = convertView.findViewById(R.id.lblProducto);
-        TextView lblPrecio = convertView.findViewById(R.id.lblPrecio);
+        TextView lblCantidad = convertView.findViewById(R.id.idInvoiceLbl);
+        TextView lblProducto = convertView.findViewById(R.id.productNameLbl);
+        TextView lblPrecio = convertView.findViewById(R.id.priceLbl);
 
         //Finalmente, se establece el texto del TextView con el elemento correspondiente de la lista
         lblCantidad.setText(String.valueOf(lineaFactura.getAmount()));

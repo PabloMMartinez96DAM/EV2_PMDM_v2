@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -50,19 +51,19 @@ public class LanguageListViewAdapter extends BaseAdapter {
 
         if (view == null) {
             LayoutInflater inflater = LayoutInflater.from(_context);
-            view = inflater.inflate(R.layout.adapter_listview_invoiceline, parent, false);
+            view = inflater.inflate(R.layout.adapter_listview_language, parent, false);
         }
-        LanguageModel idioma = _items.get(position);
-        view.setTag(idioma);
+        LanguageModel language = _items.get(position);
+        view.setTag(language);
 
         TextView lblText = view.findViewById(R.id.lblText);
-        lblText.setText(idioma.getDescription());
+        lblText.setText(language.getDescription());
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LanguageModel idioma = ((LanguageModel)view.getTag());
-                AppConfig.LANG_CURRENT = idioma.getCountryCode();
+                LanguageModel language = ((LanguageModel)view.getTag());
+                AppConfig.LANG_CURRENT = language.getCountryCode();
 
                 MainActivity mainActivity =(MainActivity)_context;
 
@@ -73,9 +74,13 @@ public class LanguageListViewAdapter extends BaseAdapter {
                     Locale.setDefault(locale);
                     config.locale = locale;
                     mainActivity.getBaseContext().getResources().updateConfiguration(config, mainActivity.getBaseContext().getResources().getDisplayMetrics());
+                    mainActivity.recreate();
+                    Log.d("CLICK: ", language.getDescription());
                 }
-                mainActivity.recreate();
-                Log.d("CLICK: ", idioma.getDescription());
+                else{
+                    Toast.makeText(mainActivity, "El lenguaje seleccionado ya está en uso", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 

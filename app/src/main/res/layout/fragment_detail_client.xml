@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fragments.DetailInvoiceFragment"
+    tools:context="fragments.DetailClientFragment"
     android:orientation="vertical">
 
 
@@ -14,12 +14,12 @@
 
 
         <!-- TODO: Update blank fragment layout -->
-        <TextView
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtTitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Detalle Factura"
-            android:textSize="20dp"
+            android:text="Detalle Cliente"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -47,11 +47,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Detalle Factura: "
+                    android:text="ID cliente "
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txtCodigoFactura"
+                    android:id="@+id/idClientLbl"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="01" />
@@ -66,35 +66,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cliente: "
+                    android:text="Nombre: "
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txtCliente"
+                    android:id="@+id/nameClientLbl"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cliente 1" />
+                    android:text="Pablo" />
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Total Factura: "
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/txtTotal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="100€" />
-
-            </LinearLayout>
 
 
         </LinearLayout>
@@ -112,7 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="CANT."
+            android:text="ID Factura"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -122,7 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="PRODUCTO"
+            android:text="Fecha"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toTopOf="parent" />
@@ -131,7 +113,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
-            android:text="PRECIO"
+            android:text="Total"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

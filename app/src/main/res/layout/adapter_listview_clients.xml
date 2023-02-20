@@ -5,15 +5,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardPedidos"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/clientsCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="1dp"
         app:cardElevation="5dp"
         app:cardUseCompatPadding="true">
         <!--card_view:cardBackgroundColor="#FFB71B"-->
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -22,7 +21,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="25dp"
@@ -32,71 +31,40 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/lblDateYear"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0000"
-                        android:textSize="9sp" />
-
-                    <TextView
-                        android:id="@+id/lblDateDay"
+                        android:id="@+id/idClientLbl"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="00"
                         android:textColor="@color/azul_3"
                         android:textSize="20dp"
                         android:textStyle="bold|italic" />
-
-                    <TextView
-                        android:id="@+id/lblDateMonth"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="NON"
-                        android:textSize="10sp" />
-
                 </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginRight="15dp"
-                    android:layout_weight="1"
-                    android:gravity="left|center_vertical"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="2dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Factura:"
-                            android:textSize="10sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/lblCodigoFactura"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="#4512"
-                            android:textColor="@color/azul_3"
-                            android:textSize="10sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
+                    android:layout_marginBottom="2dp">
 
 
                     <TextView
-                        android:id="@+id/lblCliente"
+                        android:id="@+id/clientNameLbl"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
                         android:maxLines="1"
                         android:text="Cliente 1"
                         android:textColor="#000"
-                        android:textSize="15sp"
+                        android:textSize="30sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -105,27 +73,27 @@
                         android:layout_marginTop="2dp"
                         android:text=""
                         android:textSize="9dp" />
-
                 </LinearLayout>
-                <!--Cantidad-->
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:gravity="right"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Total"
+                        android:text="Total de facturas
+"
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/lblTotal"
+                        android:id="@+id/totalInvoicesLbl"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="20€"
+                        android:text="5"
                         android:textColor="@color/azul_3"
                         android:textSize="15sp"
                         android:textStyle="bold" />
@@ -133,13 +101,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="12sp" />
-
+                        android:textSize="12dp" />
 
                 </LinearLayout>
-
             </LinearLayout>
         </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
-
+    </androidx.cardview.widget.CardView>
 </LinearLayout>

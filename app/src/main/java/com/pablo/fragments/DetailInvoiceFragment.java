@@ -7,60 +7,73 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.pablo.R;
+import com.pablo.adapters.InvoiceLineListViewAdapter;
+import com.pablo.models.ClientModel;
+import com.pablo.models.InvoiceLineModel;
+import com.pablo.models.InvoiceModel;
+import com.pablo.persistence.IDAOClient;
+import com.pablo.persistence.IDAOInvoice;
+import com.pablo.persistence.IDAOInvoiceLine;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link DetailInvoiceFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
+
 public class DetailInvoiceFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+
+    private ListView _listView;
+    private TextView _invoiceIdText;
+    private TextView _clientText;
+    private TextView _totalText;
+    private ArrayList<InvoiceLineModel> _elements;
+    private InvoiceLineListViewAdapter _adapter;
+    private InvoiceModel _invoice;
+    private IDAOInvoice _idaoInvoice = IDAOInvoice.GetInstance();
+    private IDAOInvoiceLine _idaoInvoiceLine = IDAOInvoiceLine.getInstance();
+    private IDAOClient _idaoClient = IDAOClient.getInstance();
 
     public DetailInvoiceFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment DetailInvoiceFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static DetailInvoiceFragment newInstance(String param1, String param2) {
-        DetailInvoiceFragment fragment = new DetailInvoiceFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+        Bundle args = getArguments();
+        if (args != null) {
+            int codigoFactura = args.getInt("codigoFactura");
+            _invoice = _idaoInvoice.getById(codigoFactura);
         }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail_invoice, container, false);
+        View view = inflater.inflate(R.layout.fragment_detail_invoice, container, false);
+        _listView = view.findViewById(R.id.listView);
+        _invoiceIdText = view.findViewById(R.id.txtCodigoFactura);
+        _clientText = view.findViewById(R.id.txtCliente);
+        _totalText = view.findViewById(R.id.txtTotal);
+
+        //campos
+        ClientModel cliente = _idaoClient.getById(_invoice.getClientId());
+        double total = _idaoInvoiceLine.getTotalAmount(_invoice.getId());
+        _invoiceIdText.setText(String.valueOf(_invoice.getId()));
+        _clientText.setText(cliente.getName());
+        _invoiceIdText.setText(String.valueOf(total));
+
+        //adaptador
+        _elements = _idaoInvoiceLine.getByCodigoFactura(_invoice.getId());
+        _adapter = new InvoiceLineListViewAdapter(getContext(), _elements);
+        _listView.setAdapter(_adapter);
+
+        return view;
     }
 }
