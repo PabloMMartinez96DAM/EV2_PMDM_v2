@@ -12,18 +12,23 @@ import java.util.ArrayList;
 
 public class DataMemory
     {
+        //Las listas aquí definidas actúan como las tablas de una base de datos.
+        //Almacenan los datos de las distintas entidades que existen en la aplicación y
+        //se harán operaciones CRUD
         public ArrayList<ClientModel> clientsData;
+        //Lista que contiene los distintos clientes
         public ArrayList<InvoiceModel> invoicesData;
         public ArrayList<InvoiceLineModel> invoiceLinesData;
         public ArrayList<UserModel> usersData;
         public ArrayList<LanguageModel> languageData;
         public ArrayList<ClientLineModel> clientLinesData;
 
-        //Propiedad estática donde se guarda la única instancia de la clase ...
+        //Instancia estática de la propia clase
         private static DataMemory instance;
 
 
-        //Método estático que devuelve una unica instancia de "Singleton" ...
+        //Método que se asegura de devolver una unica instancia que permanecerá en memoria mientas
+        //La aplicación esté en ejecución
         public static DataMemory getInstance()
         {
             if (instance == null)
@@ -33,7 +38,7 @@ public class DataMemory
             return instance;
         }
 
-        //Constructor por defecto privado para que no se pueda instanciar a menos que se use el metodo de clase "GetInstance" ...
+        //Constructor por defecto que inicializa la clase con datos por defecto
         private DataMemory() {
             initializeUserData();
             initializeClientsData();

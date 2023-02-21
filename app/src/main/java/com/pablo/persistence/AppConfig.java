@@ -1,9 +1,9 @@
 package com.pablo.persistence;
 
 public class AppConfig {
-
-        //Valores: MEMORY, SQLITE, FIREBASE
+        //Sistema de persistencia a utilizar
         public static String Modo = "MEMORY";
-        public static String LANG_CURRENT = "es";
 
+        //Idioma de la aplicación
+        public static String LANG_CURRENT = "es";
 }
