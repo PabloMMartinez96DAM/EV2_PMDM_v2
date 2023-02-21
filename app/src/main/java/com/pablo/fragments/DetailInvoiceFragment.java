@@ -47,7 +47,7 @@ public class DetailInvoiceFragment extends Fragment {
         super.onCreate(savedInstanceState);
         Bundle args = getArguments();
         if (args != null) {
-            int codigoFactura = args.getInt("codigoFactura");
+            int codigoFactura = args.getInt("invoiceId");
             _invoice = _idaoInvoice.getById(codigoFactura);
         }
     }

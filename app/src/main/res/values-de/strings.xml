@@ -1,44 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">GestorFacturas</string>
-    <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+<string name="app_name">InvoiceManager</string>
+<string name="action_settings">Settings</string>
+<!-- Strings used for fragments for navigation -->
+<string name="first_fragment_label">First Fragment</string>
+<string name="second_fragment_label">Second Fragment</string>
+<string name="next">Next</string>
+<string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="title_activity_login">LoginActivity</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+<string name="hello_first_fragment">Hello first fragment</string>
+<string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+<string name="title_activity_login">LoginActivity</string>
+<string name="prompt_email">Email</string>
+<string name="prompt_password">Passwort</string>
+<string name="action_sign_in">Anmelden oder Registrieren</string>
+<string name="action_sign_in_short">Anmeldung</string>
+<string name="welcome">"Willkommen!"</string>
+<string name="invalid_username">Ungültiger Benutzer</string>
+<string name="invalid_password">Das Passwort muss länger als 5 Zeichen sein</string>
+<string name="login_failed">"Falsche Anmeldedaten"</string>
 
-    <string name="login_usuario">Usuario</string>
-    <string name="login_password">Password</string>
-    <string name="login_boton_login">Login</string>
-    <string name="menu_dashboard">Dashboard</string>
-    <string name="menu_clientes">Clientes</string>
-    <string name="menu_facturas">Facturas</string>
-    <string name="menu_idioma">Idioma</string>
-    <string name="menu_salir">Salir</string>
-    <string name="usuario">Usuario</string>
-    <string name="navigation_drawer_open">drawer_open</string>
-    <string name="navigation_drawer_close">drawer_close</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="adapter_facturas_total">Total</string>
-    <string name="espanol">Español</string>
-    <string name="ingles">Ingles</string>
-    <string name="title_detail_client">Detalle Cliente</string>
-    <string name="sendBtn">Enviar</string>
-    <string name="formulario_facturas">Formulario facturas</string>
-    <string name="fecha_emision">Fecha de emisión</string>
-    <string name="total_lbl">Total</string>
-
+<string name="login_usuario">Benutzer</string>
+<string name="login_password">Passwort</string>
+<string name="login_boton_login">Anmeldung</string>
+<string name="menu_dashboard">Dashboard</string>
+<string name="menu_clientes">Kunden</string>
+<string name="menu_facturas">Rechnungen</string>
+<string name="menu_idioma">Sprache</string>
+<string name="menu_salir">Exit</string>
+<string name="usuario">Benutzer</string>
+<string name="navigation_drawer_open">drawer_open</string>
+<string name="navigation_drawer_close">drawer_close</string>
+<!-- TODO: Remove or change this placeholder text -->
+<string name="hello_blank_fragment">Hello blank fragment</string>
+<string name="adapter_facturas_total">Total</string>
+<string name="espanol">Spanish</string>
+<string name="ingles">English</string>
+<string name="title_detail_client">Client details</string>
+<string name="sendBtn">schicken</string>
+<string name="formulario_facturas">Rechnungsformular</string>
+<string name="fecha_emision">Datum der Ausstellung</string>
+<string name="total_lbl">gesamt</string>
+<string name="bienvenido_dashboard">Willkommen beim Rechnungsmanager</string>
 </resources>

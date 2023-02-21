@@ -80,7 +80,6 @@ public class MasterInvoiceFragment extends Fragment {
                 // Crea una instancia del nuevo fragment
                 Fragment newFragment = new InvoiceFormFragment();
 
-
                 // Obtiene el FragmentManager desde el contexto
                 FragmentManager fragmentManager = ((FragmentActivity) getContext()).getSupportFragmentManager();
 

@@ -81,7 +81,7 @@ public class InvoiceListViewAdapter extends BaseAdapter implements Filterable {
             LayoutInflater inflater = LayoutInflater.from(_context);
             convertView = inflater.inflate(R.layout.adapter_listview_invoices, parent, false);
         }
-        InvoiceModel factura = _itemsFiltered.get(position);
+        InvoiceModel invoice = _itemsFiltered.get(position);
 
         //Luego, se obtiene una referencia a un TextView dentro del layout personalizado.
         TextView lblCodigoFactura = convertView.findViewById(R.id.lblCodigoFactura);
@@ -93,7 +93,7 @@ public class InvoiceListViewAdapter extends BaseAdapter implements Filterable {
 
         //Finalmente, se establece el texto del TextView con el elemento correspondiente de la lista
         Calendar calendar = Calendar.getInstance();
-        calendar.setTime(factura.getDate());
+        calendar.setTime(invoice.getDate());
         int ano = calendar.get(Calendar.YEAR);
         int mes = calendar.get(Calendar.MONTH);
         int dia = calendar.get(Calendar.DAY_OF_MONTH);
@@ -101,10 +101,10 @@ public class InvoiceListViewAdapter extends BaseAdapter implements Filterable {
         String diaFormateado = String.format("%02d", dia);
         String mesFormateado = new DateFormatSymbols().getShortMonths()[mes];
 
-        ClientModel cliente = idaoCliente.getById(factura.getClientId());
-        double total = idaoLineaFactura.getTotalAmount(factura.getId());
+        ClientModel cliente = idaoCliente.getById(invoice.getClientId());
+        double total = idaoLineaFactura.getTotalAmount(invoice.getId());
 
-        lblCodigoFactura.setText(String.valueOf(factura.getId()));
+        lblCodigoFactura.setText(String.valueOf(invoice.getId()));
         lblDateYear.setText(String.valueOf(ano));
         lblDateDay.setText(diaFormateado);
         lblDateMonth.setText(mesFormateado);
@@ -119,7 +119,7 @@ public class InvoiceListViewAdapter extends BaseAdapter implements Filterable {
 
                 // Crear un bundle para pasar los parámetros
                 Bundle args = new Bundle();
-                args.putInt("codigoFactura", factura.getId());
+                args.putInt("invoiceId", invoice.getId());
                 // Agregar el bundle al fragmento
                 newFragment.setArguments(args);
 

@@ -107,6 +107,25 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Sobrecarga para que al navegar se le pase tambien un usuario como argumento al siguiente fragment
+    private void displayFragment(int position,UserModel user) {
+
+        //Obtenemos el fragment de la lista en función de la posición
+        Fragment fragment = _fragments.get(position);
+
+        //Para gestionar la transacción entre fragments necesitamos crear una instancia de la clase
+        //FragmentTransacion en función del fragmentManager
+        FragmentTransaction transaction = _fragmentManager.beginTransaction();
+
+        //Sustituye el fragment del el container especificado como parámetro por otro fragment que también se le
+        //pasa como parámetro
+        transaction.replace(R.id.content_frame, fragment);
+
+        //Confirmamos los cambios y se ejecuta la transacción
+        transaction.commit();
+
+    }
+
     private class NavView_OnNavigationItemSelectedListener implements NavigationView.OnNavigationItemSelectedListener {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {

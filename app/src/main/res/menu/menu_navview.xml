@@ -3,23 +3,23 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/menu_dashboard"
-            android:icon="@mipmap/ic_launcher"
+            android:icon="@drawable/baseline_home_24"
             android:title="@string/menu_dashboard"/>
         <item
             android:id="@+id/menu_clientes"
-            android:icon="@drawable/ic_shortcut_fe_logo"
+            android:icon="@drawable/baseline_groups_24"
             android:title="@string/menu_clientes" />
         <item
             android:id="@+id/menu_facturas"
-            android:icon="@mipmap/ic_launcher_round"
+            android:icon="@drawable/baseline_heart_broken_24"
             android:title="@string/menu_facturas"/>
         <item
             android:id="@+id/menu_idioma"
-            android:icon="@mipmap/ic_launcher_round"
+            android:icon="@drawable/baseline_language_24"
             android:title="@string/menu_idioma"/>
         <item
             android:id="@+id/menu_salir"
-            android:icon="@mipmap/ic_launcher_round"
+            android:icon="@drawable/baseline_exit_to_app_24"
             android:title="@string/menu_salir"/>
     </group>
 </menu>

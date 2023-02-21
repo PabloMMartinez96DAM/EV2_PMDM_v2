@@ -20,7 +20,7 @@
     <string name="login_failed">"Login failed"</string>
 
     <string name="login_usuario">Usuario</string>
-    <string name="login_password">Password</string>
+    <string name="login_password">Contraseña</string>
     <string name="login_boton_login">Login</string>
     <string name="menu_dashboard">Dashboard</string>
     <string name="menu_clientes">Clientes</string>
@@ -40,6 +40,7 @@
     <string name="formulario_facturas">Formulario facturas</string>
     <string name="fecha_emision">Fecha de emisión</string>
     <string name="total_lbl">Total</string>
+    <string name="bienvenido_dashboard">Bienvenido/a Invoice Manager</string>
 
 
 </resources>
