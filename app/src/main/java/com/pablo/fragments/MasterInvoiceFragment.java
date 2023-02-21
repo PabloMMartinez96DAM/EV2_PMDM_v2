@@ -6,6 +6,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -74,8 +76,19 @@ public class MasterInvoiceFragment extends Fragment {
         _insertFloatingBtn = view.findViewById(R.id.fab_insertar);
         _insertFloatingBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Toast.makeText(getActivity(), "Implementar nueva factura", Toast.LENGTH_SHORT).show();
+            public void onClick(View view)  {
+                // Crea una instancia del nuevo fragment
+                Fragment newFragment = new InvoiceFormFragment();
+
+
+                // Obtiene el FragmentManager desde el contexto
+                FragmentManager fragmentManager = ((FragmentActivity) getContext()).getSupportFragmentManager();
+
+                // Inicia la transacción de fragmentos
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content_frame, newFragment)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
 

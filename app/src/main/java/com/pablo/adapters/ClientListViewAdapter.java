@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
 import com.pablo.R;
+import com.pablo.fragments.ClientFormFragment;
 import com.pablo.fragments.DetailClientFragment;
 import com.pablo.fragments.DetailInvoiceFragment;
 import com.pablo.models.ClientModel;
@@ -85,15 +86,14 @@ public class ClientListViewAdapter extends BaseAdapter  implements Filterable {
             @Override
             public void onClick(View view) {
                 // Crea una instancia del nuevo fragment
-                Fragment newFragment = new DetailClientFragment();
+                Fragment newFragment = new ClientFormFragment();
 
                 // Crear un bundle para pasar los parámetros
                 Bundle args = new Bundle();
                 args.putInt("clientId", client.getId());
+
                 // Agregar el bundle al fragmento
                 newFragment.setArguments(args);
-
-
                 FragmentManager fragmentManager = ((FragmentActivity) _context).getSupportFragmentManager();
 
                 // Inicia la transacción de fragmentos

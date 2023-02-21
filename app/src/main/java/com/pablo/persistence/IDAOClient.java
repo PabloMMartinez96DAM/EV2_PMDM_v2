@@ -26,4 +26,6 @@ public abstract class IDAOClient {
         }
         return null;
     }
+
+    public abstract boolean updateClient(ClientModel client);
 }

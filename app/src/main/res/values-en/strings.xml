@@ -36,4 +36,9 @@
     <string name="adapter_facturas_total">Total</string>
     <string name="espanol">Spanish</string>
     <string name="ingles">English</string>
+    <string name="title_detail_client">Client details</string>
+    <string name="sendBtn">Send</string>
+    <string name="formulario_facturas">Formulario facturas</string>
+    <string name="fecha_emision">Fecha de emisión</string>
+    <string name="total_lbl">Total</string>
 </resources>

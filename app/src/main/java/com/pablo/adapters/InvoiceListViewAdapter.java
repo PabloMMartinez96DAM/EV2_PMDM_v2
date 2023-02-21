@@ -97,10 +97,13 @@ public class InvoiceListViewAdapter extends BaseAdapter implements Filterable {
         int ano = calendar.get(Calendar.YEAR);
         int mes = calendar.get(Calendar.MONTH);
         int dia = calendar.get(Calendar.DAY_OF_MONTH);
+
         String diaFormateado = String.format("%02d", dia);
         String mesFormateado = new DateFormatSymbols().getShortMonths()[mes];
+
         ClientModel cliente = idaoCliente.getById(factura.getClientId());
         double total = idaoLineaFactura.getTotalAmount(factura.getId());
+
         lblCodigoFactura.setText(String.valueOf(factura.getId()));
         lblDateYear.setText(String.valueOf(ano));
         lblDateDay.setText(diaFormateado);
@@ -119,19 +122,6 @@ public class InvoiceListViewAdapter extends BaseAdapter implements Filterable {
                 args.putInt("codigoFactura", factura.getId());
                 // Agregar el bundle al fragmento
                 newFragment.setArguments(args);
-
-
-                // Aquí se declara una variable local fragmentManager del tipo FragmentManager.
-                // Este será el objeto que utilizaremos para gestionar los fragmentos en la aplicación.
-
-                // Aquí se realiza una conversión de tipos de context a FragmentActivity.
-                // _context es una variable local que se pasa como parámetro en el constructor de ListViewAdapter.
-                // El context es el contexto en el que se ejecuta la aplicación y se utiliza comúnmente para acceder a recursos
-                // y servicios del sistema Android.
-
-                // Pero en este caso, necesitamos una instancia de FragmentActivity para poder obtener un FragmentManager.
-                // Una FragmentActivity es una actividad especial que proporciona un marco para trabajar con fragmentos.
-                // Si context no es una FragmentActivity, debes hacer una conversión explícita para poder usar getSupportFragmentManager().
 
                 // Obtiene el FragmentManager desde el contexto
                 FragmentManager fragmentManager = ((FragmentActivity) _context).getSupportFragmentManager();

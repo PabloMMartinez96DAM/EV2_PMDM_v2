@@ -36,6 +36,9 @@
     <string name="espanol">Español</string>
     <string name="ingles">Ingles</string>
     <string name="title_detail_client">Detalle Cliente</string>
-
+    <string name="sendBtn">Enviar</string>
+    <string name="formulario_facturas">Formulario facturas</string>
+    <string name="fecha_emision">Fecha de emisión</string>
+    <string name="total_lbl">Total</string>
 
 </resources>

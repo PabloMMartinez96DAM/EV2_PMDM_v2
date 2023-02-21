@@ -19,4 +19,20 @@ public class DAOMemoryClient extends IDAOClient {
     public ArrayList<ClientModel> getAll(){
         return DataMemory.getInstance().clientsData;
     }
+
+    //Este método actualiza a un cliente y devuelve un booleano si se ha conseguido
+    @Override
+    public boolean updateClient(ClientModel updatedClient) {
+
+        ArrayList<ClientModel> clients = DataMemory.getInstance().clientsData;
+        for (int i = 0; i <clients.size();i++) {
+            if(clients.get(i).getId() == updatedClient.getId()){
+                clients.set(i,updatedClient);
+               return true;
+            }
+
+        }
+        return false;
+
+    }
 }
