@@ -27,6 +27,7 @@
 
         <EditText
             android:id="@+id/txtUsuario"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/login_usuario"
@@ -38,6 +39,7 @@
 
         <EditText
             android:id="@+id/txtPassword"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/login_password"

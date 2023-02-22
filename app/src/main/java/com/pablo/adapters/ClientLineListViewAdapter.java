@@ -14,6 +14,9 @@ import com.pablo.models.InvoiceLineModel;
 
 import java.util.List;
 
+
+//Esta clase al final está deprecada porque no tiene mucho sentido, Estuve haciendo unas pruebas
+//pero no quise complicar la cosa más de lo necesario por la falta de tiempo
 public class ClientLineListViewAdapter extends BaseAdapter {
 
     private Context _context;

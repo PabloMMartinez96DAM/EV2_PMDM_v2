@@ -85,8 +85,6 @@ public class MainActivity extends AppCompatActivity {
         _drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-
-
     }
 
     private void displayFragment(int position) {
@@ -126,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Clase privada que implementa una interfaz que nos facilita realizar acciones en función del campo seleccionado en el navView
     private class NavView_OnNavigationItemSelectedListener implements NavigationView.OnNavigationItemSelectedListener {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {

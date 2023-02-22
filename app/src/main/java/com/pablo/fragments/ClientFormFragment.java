@@ -18,6 +18,7 @@ import com.pablo.models.ClientModel;
 import com.pablo.persistence.IDAOClient;
 
 
+//Este fragment modificara un cliente que se le pasa como parametro
 public class ClientFormFragment extends Fragment {
 
     private ClientModel _client;
@@ -30,6 +31,7 @@ public class ClientFormFragment extends Fragment {
         return fragment;
     }
 
+    //Recuperamos el cliente
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle args = getArguments();
@@ -69,8 +71,8 @@ public class ClientFormFragment extends Fragment {
                 String newLastName = lastNameTxt.getText().toString();
 
                 //Una mejora sería comprobar si lo introducido no es un número o restringir a que
-                // solo se pueden meter número definiendo un Pattern o con alguna herramienta del
-                // propio framework
+                //solo se pueden meter número definiendo un Pattern o con alguna herramienta del
+                //propio framework
                 int newAge =Integer.parseInt( ageNameTxt.getText().toString());
 
                 String newDescription = descrEditText.getText().toString();

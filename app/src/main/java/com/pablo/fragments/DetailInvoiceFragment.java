@@ -22,9 +22,8 @@ import com.pablo.persistence.IDAOInvoiceLine;
 import java.util.ArrayList;
 
 
+//Implementada en clase: Fragment para mostrar el detalle de una factura
 public class DetailInvoiceFragment extends Fragment {
-
-
 
     private ListView _listView;
     private TextView _invoiceIdText;

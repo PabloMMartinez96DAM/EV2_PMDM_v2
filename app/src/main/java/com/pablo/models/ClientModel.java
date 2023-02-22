@@ -11,14 +11,16 @@ public class ClientModel {
 
     private String lastName;
 
+    //Age of the client
     private int age;
+
+    //Description of the client
     private String description;
 
     //Constructors
 
     //Default constructor
     public ClientModel() {}
-
 
     //Constructor which initialize all the properties of this class
     public ClientModel(int id, String name, String lastName, int age, String description) {

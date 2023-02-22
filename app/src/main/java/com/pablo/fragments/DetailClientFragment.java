@@ -21,9 +21,10 @@ import com.pablo.persistence.IDAOInvoiceLine;
 import java.util.ArrayList;
 
 
+//Este fragment es funcional pero no me ha dado tiempo ha refinar todo lo que me hubiera gustado el
+//adaptador, ya que mi intención era que los clientes y las facturas tuvieran cardinalida N-M y hacer
+//unas vistas algo más interesantes. Pero por falta de tiempo no la he incluido en la memoria
 public class DetailClientFragment extends Fragment {
-
-
 
     private TextView _idClientLbl;
     private TextView _nameClientLbl;
@@ -39,8 +40,6 @@ public class DetailClientFragment extends Fragment {
     public DetailClientFragment() {
         // Required empty public constructor
     }
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

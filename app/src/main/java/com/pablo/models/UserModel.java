@@ -6,6 +6,16 @@ public class UserModel implements Serializable {
     private String userName;
     private String password;
 
+    //Default constructor
+    public UserModel() {
+    }
+
+
+    public UserModel(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
+    }
+
     public String getUserName() {
         return userName;
     }
@@ -22,8 +32,5 @@ public class UserModel implements Serializable {
         this.password = password;
     }
 
-    public UserModel(String userName, String password) {
-        this.userName = userName;
-        this.password = password;
-    }
+
 }

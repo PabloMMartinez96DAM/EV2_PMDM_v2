@@ -23,7 +23,7 @@ public class DAOMemoryInvoice extends IDAOInvoice {
     }
 
     @Override
-    public ArrayList<InvoiceModel> search(String text) {
+    public ArrayList<InvoiceModel> search(String product) {
 
         return null;
     }

@@ -72,18 +72,17 @@ public class InvoiceListViewAdapter extends BaseAdapter implements Filterable {
         return position;
     }
 
-    //El metodo getview se llama automaticamente por el sistema android cuando se necesita mostrar un elemento por pantalla.
+    //Este método se ejecuta al mostrar un elemento
     public View getView(int position, View convertView, ViewGroup parent) {
-        //En getView, primero se verifica si convertView es nula.
-        //  Si es nula, se inflama el layout personalizado usando un LayoutInflater y se asigna a convertView.
-        //  Si no es nula, se usa directamente.
+
+        //Una pequeña optimización para no tener que "inflar" la vista si no es nula.
         if (convertView == null) {
             LayoutInflater inflater = LayoutInflater.from(_context);
             convertView = inflater.inflate(R.layout.adapter_listview_invoices, parent, false);
         }
         InvoiceModel invoice = _itemsFiltered.get(position);
 
-        //Luego, se obtiene una referencia a un TextView dentro del layout personalizado.
+        //Obtenemos la referencia a los componentes de la interfaz
         TextView lblCodigoFactura = convertView.findViewById(R.id.lblCodigoFactura);
         TextView lblDateYear = convertView.findViewById(R.id.lblDateYear);
         TextView lblDateDay = convertView.findViewById(R.id.lblDateDay);
@@ -91,7 +90,7 @@ public class InvoiceListViewAdapter extends BaseAdapter implements Filterable {
         TextView lblCliente = convertView.findViewById(R.id.lblCliente);
         TextView lblTotal = convertView.findViewById(R.id.lblTotal);
 
-        //Finalmente, se establece el texto del TextView con el elemento correspondiente de la lista
+        //Asignamos los valores a los componentes
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(invoice.getDate());
         int ano = calendar.get(Calendar.YEAR);
@@ -111,6 +110,8 @@ public class InvoiceListViewAdapter extends BaseAdapter implements Filterable {
         lblCliente.setText(cliente.getName());
         lblTotal.setText(String.valueOf(total));
 
+        //Implementamos un listener cuando clickamos un elemento para navegar al fragment de detalle
+        //pasandole los datos del elemento seleccionado
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -143,6 +144,7 @@ public class InvoiceListViewAdapter extends BaseAdapter implements Filterable {
         return customFilter;
     }
 
+    //Implementación del filtro de busqueda
     private class CustomFilter extends Filter {
 
         @Override

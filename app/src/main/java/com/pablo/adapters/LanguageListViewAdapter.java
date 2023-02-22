@@ -46,6 +46,8 @@ public class LanguageListViewAdapter extends BaseAdapter {
         return position;
     }
 
+    //Este método recupera los componentes de la interfaz de usuario, los inicializa y cambia el
+    //idioma de la aplicacion en funcion del elemento seleccionado
     @Override
     public View getView(int position, View view, ViewGroup parent) {
 
